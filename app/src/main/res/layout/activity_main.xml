@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/backgraund"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:background="#c9a0dc"
+        android:weightSum="5" >
+        <Button
+            android:backgroundTint="#c9a0dc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="160"
+            android:minLines="1"
+            android:text="+"
+            android:textSize="8pt"
+            android:id="@+id/btn1">
+        </Button>
+        <Button
+            android:backgroundTint="#c9a0dc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="160"
+            android:minLines="1"
+            android:text="+"
+            android:textSize="8pt"
+            android:id="@+id/btn2">
+        </Button>
+        <Button
+            android:backgroundTint="#c9a0dc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="160"
+            android:minLines="1"
+            android:text="+"
+            android:textSize="8pt"
+            android:id="@+id/btn3">
+        </Button>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="" />
+
+        <Button
+            android:backgroundTint="#c9a0dc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:textSize="8pt"
+            android:id="@+id/btnAdd">
+        </Button>
+
+    </LinearLayout>
+
+</LinearLayout>
