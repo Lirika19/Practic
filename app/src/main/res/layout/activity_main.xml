@@ -19,7 +19,7 @@
             android:layout_weight="1"
             android:maxLines="160"
             android:minLines="1"
-            android:text="+"
+            android:text="первый лист"
             android:textSize="8pt"
             android:id="@+id/btn1">
         </Button>
