@@ -1,65 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:background="@drawable/backgraund"
-    >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout2"
-        android:background="#c9a0dc"
-        android:weightSum="5" >
-        <Button
-            android:backgroundTint="#c9a0dc"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:maxLines="160"
-            android:minLines="1"
-            android:text="первый лист"
-            android:textSize="8pt"
-            android:id="@+id/btn1">
-        </Button>
-        <Button
-            android:backgroundTint="#c9a0dc"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:maxLines="160"
-            android:minLines="1"
-            android:text="+"
-            android:textSize="8pt"
-            android:id="@+id/btn2">
-        </Button>
-        <Button
-            android:backgroundTint="#c9a0dc"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:maxLines="160"
-            android:minLines="1"
-            android:text="+"
-            android:textSize="8pt"
-            android:id="@+id/btn3">
-        </Button>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.5"
-            android:text="" />
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/backgraund"
+        android:orientation="vertical">
 
-        <Button
-            android:backgroundTint="#c9a0dc"
-            android:layout_width="0dp"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/tabsContainer"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+            app:navGraph="@navigation/main_graph"
+            tools:layout_editor_absoluteX="0dp"
+            />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            app:itemIconSize="0dp"
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:textSize="8pt"
-            android:id="@+id/btnAdd">
-        </Button>
+            android:background="@color/teal_200"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/menu" />
 
-    </LinearLayout>
-
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
