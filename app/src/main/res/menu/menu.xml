@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Calendar"
-        android:id="@navigation/calendar"
+        android:id="@+id/calendarFragment"
         android:icon="@drawable/sandclocks"/>
     <item android:title="Notes"
-        android:id="@navigation/zametki"
+        android:id="@+id/zametkiFragment"
         android:icon="@drawable/sandclocks"/>
     <item android:title="List"
-        android:id="@navigation/list"
+        android:id="@+id/listFragment"
         android:icon="@drawable/sandclocks"/>
 </menu>
