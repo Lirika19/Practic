@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/calendarFragment"
-        android:name="com.pop.practic.CalendarFragment"
+        android:name="com.pop.practic.ui.calendar.CalendarFragment"
         android:label="Calendar"
         tools:layout="@layout/fragment_calendar" />
 
     <fragment
         android:id="@+id/zametkiFragment"
-        android:name="com.pop.practic.ZametkiFragment"
+        android:name="com.pop.practic.ui.zametki.ZametkiFragment"
         android:label="Zametki"
         tools:layout="@layout/fragment_zametki" />
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.pop.practic.ListFragment"
+        android:name="com.pop.practic.ui.list.ListFragment"
         android:label="List"
         tools:layout="@layout/fragment_list" />
 </navigation>

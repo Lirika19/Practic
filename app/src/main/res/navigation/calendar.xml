@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/calendarFragment"
         tools:layout="@layout/fragment_calendar"
-        android:name="com.pop.practic.CalendarFragment"
+        android:name="com.pop.practic.ui.calendar.CalendarFragment"
         android:label="calendar"
         />
 </navigation>
