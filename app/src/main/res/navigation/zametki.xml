@@ -6,7 +6,7 @@
     app:startDestination="@id/zametkiFragment">
     <fragment
         android:id="@+id/zametkiFragment"
-        android:name="com.pop.practic.ZametkiFragment"
+        android:name="com.pop.practic.ui.zametki.ZametkiFragment"
         tools:layout="@layout/fragment_zametki"
         android:label="Zametki"
         />

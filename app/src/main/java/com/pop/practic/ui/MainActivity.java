@@ -1,4 +1,4 @@
-package com.pop.practic;
+package com.pop.practic.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -10,6 +10,7 @@ import androidx.navigation.ui.NavigationUI;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.pop.practic.R;
 import com.pop.practic.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
