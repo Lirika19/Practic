@@ -11,12 +11,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pop.practic.R;
+import com.pop.practic.app.App;
 import com.pop.practic.databinding.FragmentListBinding;
+import com.pop.practic.repository.Repository;
 import com.pop.practic.ui.list.adapters.NotesAdapter;
 import com.pop.practic.ui.list.adapters.ToDoAdapter;
 
 public class ListFragment extends Fragment {
-
+    NotesAdapter notesAdapter = new NotesAdapter(App.getInstance().getRepository());
+    ToDoAdapter toDoAdapter = new ToDoAdapter();
     FragmentListBinding fragmentListBinding;
     public static ListFragment newInstance(String param1, String param2) {
         ListFragment fragment = new ListFragment();
@@ -34,8 +37,7 @@ public class ListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         fragmentListBinding = FragmentListBinding.inflate(inflater, container, false);
-        NotesAdapter notesAdapter = new NotesAdapter();
-        ToDoAdapter toDoAdapter = new ToDoAdapter();
+
         fragmentListBinding.notesRecyclerView.setAdapter(notesAdapter);
         fragmentListBinding.todoRecyclerView.setAdapter(toDoAdapter);
         return fragmentListBinding.getRoot();

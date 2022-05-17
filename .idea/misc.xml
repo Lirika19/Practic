@@ -8,8 +8,10 @@
         <entry key="..\:/Practic/app/src/main/res/layout/fragment_list.xml" value="0.136" />
         <entry key="..\:/Practic/app/src/main/res/layout/fragment_settings.xml" value="0.11302083333333333" />
         <entry key="..\:/Practic/app/src/main/res/layout/fragment_zametki.xml" value="0.11302083333333333" />
-        <entry key="..\:/Practic/app/src/main/res/layout/item_row_note_full.xml" value="0.12552083333333333" />
+        <entry key="..\:/Practic/app/src/main/res/layout/item_row_note_full.xml" value="0.16" />
         <entry key="..\:/Practic/app/src/main/res/layout/item_row_note_new.xml" value="0.12552083333333333" />
+        <entry key="..\:/Practic/app/src/main/res/layout/item_row_todo_full.xml" value="0.11302083333333333" />
+        <entry key="..\:/Practic/app/src/main/res/layout/item_row_todo_new.xml" value="0.11302083333333333" />
         <entry key="..\:/Practic/app/src/main/res/menu/menu.xml" value="0.20729166666666668" />
         <entry key="..\:/Users/Sasha/Practic/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.144" />
         <entry key="..\:/Users/Sasha/Practic/app/src/main/res/drawable/ic_launcher_background.xml" value="0.144" />

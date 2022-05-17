@@ -1,15 +1,13 @@
-package com.pop.practic.repository.room;
+package com.pop.practic.repository.room.notes;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
 @Entity
-public class Goals {
+public class Note {
     @PrimaryKey(autoGenerate = true)
     public long uid;
     @ColumnInfo(name = "title")
     public String title;
-    @ColumnInfo(name = "startDate")
-    public String startDate;
-    @ColumnInfo(name = "endDate")
-    public String endDate;
 }
