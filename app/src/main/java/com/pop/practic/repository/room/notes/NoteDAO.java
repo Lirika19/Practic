@@ -19,6 +19,9 @@ public interface NoteDAO {
     @Query("SELECT * FROM note")
     List<Note> getAll();
 
+    @Query("SELECT * FROM note WHERE title IN(:title)")
+    List<Note> getByTitle(String title);
+
     @Update
     public void updateUsers(Note... notes);
 }
