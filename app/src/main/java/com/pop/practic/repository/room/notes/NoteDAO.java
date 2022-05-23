@@ -11,7 +11,7 @@ import java.util.List;
 @Dao
 public interface NoteDAO {
     @Insert
-    void insertAll(Note... note);
+    void insertAll(Note note);
 
     @Delete
     void deleteNote(Note note);
