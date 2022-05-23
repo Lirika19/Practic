@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_height="wrap_content" android:layout_width="match_parent">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="31dp"
+            android:layout_marginBottom="660dp"
+            android:text="1" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/item_row_note_edit_text"
+            android:layout_width="242dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="21dp"
+            android:layout_marginBottom="667dp"
+            android:maxWidth="200dp"
+            android:minWidth="150dp"
+            android:minHeight="48dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/item_row_note_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="667dp"
+            android:text="+"
+            android:visibility="visible" />
+
+    </LinearLayout>
+</layout>
