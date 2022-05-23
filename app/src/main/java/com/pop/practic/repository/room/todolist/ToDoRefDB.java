@@ -6,7 +6,7 @@ import androidx.room.RoomDatabase;
 import com.pop.practic.repository.room.todolist.ToDoRef;
 import com.pop.practic.repository.room.todolist.ToDoRefDAO;
 
-@Database(entities = {ToDoRef.class}, version = 1)
+@Database(entities = {ToDoRef.class}, version = 2)
 public abstract class ToDoRefDB extends RoomDatabase {
     public abstract ToDoRefDAO todorefDAO();
 }

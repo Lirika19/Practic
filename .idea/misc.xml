@@ -17,6 +17,15 @@
         <entry key="..\:/Users/Sasha/Practic/app/src/main/res/drawable/ic_launcher_background.xml" value="0.144" />
         <entry key="..\:/Users/Sasha/Practic/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Sasha/Remember2/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_calendar.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/item_row_note_full.xml" value="0.2761418660481771" />
+        <entry key="app/src/main/res/layout/item_row_note_new.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/item_row_todo_full.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/item_row_todo_new.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/shape_todolist_fragment.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/todocreator_fragment.xml" value="0.15520833333333334" />
       </map>
     </option>
   </component>

@@ -19,7 +19,7 @@ import com.pop.practic.ui.list.adapters.ToDoAdapter;
 
 public class ListFragment extends Fragment {
     NotesAdapter notesAdapter = new NotesAdapter(App.getInstance().getRepository());
-    ToDoAdapter toDoAdapter = new ToDoAdapter();
+    ToDoAdapter toDoAdapter = new ToDoAdapter(App.getInstance().getRepository());
     FragmentListBinding fragmentListBinding;
     public static ListFragment newInstance(String param1, String param2) {
         ListFragment fragment = new ListFragment();
