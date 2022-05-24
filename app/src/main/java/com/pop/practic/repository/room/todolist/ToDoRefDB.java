@@ -1,10 +1,9 @@
 package com.pop.practic.repository.room.todolist;
 
+import android.content.Context;
+
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
-
-import com.pop.practic.repository.room.todolist.ToDoRef;
-import com.pop.practic.repository.room.todolist.ToDoRefDAO;
 
 @Database(entities = {ToDoRef.class}, version = 2)
 public abstract class ToDoRefDB extends RoomDatabase {

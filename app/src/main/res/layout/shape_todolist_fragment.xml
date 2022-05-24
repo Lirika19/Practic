@@ -10,7 +10,7 @@
 
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textViewtodo"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
@@ -20,7 +20,7 @@
             android:text="1" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/item_row_note_edit_text"
+            android:id="@+id/item_row_todo_edit_text"
             android:layout_width="235dp"
             android:layout_height="41dp"
             android:layout_marginStart="0dp"
@@ -32,7 +32,7 @@
             android:minHeight="48dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/item_row_note_button"
+            android:id="@+id/item_row_todo_button"
             android:layout_width="40dp"
             android:layout_height="48dp"
             android:layout_marginStart="0dp"

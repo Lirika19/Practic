@@ -1,5 +1,7 @@
 package com.pop.practic.repository.room.todolist;
 
+import android.provider.BaseColumns;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -10,10 +12,6 @@ public class ToDoRef {
     public long uid;
     @ColumnInfo(name = "title")
     public String title;
-    @ColumnInfo(name = "description")
-    public String description;
-    @ColumnInfo(name = "time")
-    public long time;
 }
 
 
