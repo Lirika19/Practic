@@ -60,11 +60,9 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
 
     @NonNull
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View todo_fr = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.item_row_todolist_fragment, viewGroup, false);
 
         View todo_sh_fr = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.shape_todolist_fragment, viewGroup, false);
+                .inflate(R.layout.item_todolist_fragment, viewGroup, false);
 
         return new ViewHolder(todo_sh_fr);
     }
@@ -73,18 +71,19 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         viewHolder.getGetTextView().setText(todo.get(position).title);
         viewHolder.getButton().setVisibility(View.INVISIBLE);
-        viewHolder.getTextView().setText(String.valueOf(position));
+        viewHolder.getTextView().setText(String.valueOf(position + 1));
         Log.i("HELP", "ToDoAdapter: " + todo.get(position).title);
 
-        if (position+1==todo.size()) {
+        if (position + 1 == todo.size()) {
+            viewHolder.getButton().setText("+");
             viewHolder.getTextView().setVisibility(View.INVISIBLE);
             viewHolder.getButton().setVisibility(View.VISIBLE);
             viewHolder.getGetTextView().setEnabled(true);
             viewHolder.getButton().setOnClickListener(view -> {
-                if(viewHolder.getGetTextView().getText().toString().equals("")){
+                if (viewHolder.getGetTextView().getText().toString().equals("")) {
                     Toast.makeText(viewHolder.getGetTextView().getContext(), "Пустое поле!", Toast.LENGTH_SHORT).show();
-                }
-                else{
+                } else {
+                    viewHolder.getTextView().setVisibility(View.INVISIBLE);
                     ToDoRef todoref = todo.get(position);
                     todoref.title = (String) viewHolder.getGetTextView().getText().toString();
 
@@ -96,9 +95,9 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
                     Toast.makeText(viewHolder.getGetTextView().getContext(), "Сохранено!", Toast.LENGTH_SHORT).show();
                 }
             });
-        }
-        else
-        {
+        } else {
+            viewHolder.getButton().setText("-");
+            viewHolder.getTextView().setText(String.valueOf(position + 1));
             viewHolder.getButton().setVisibility(View.VISIBLE);
             viewHolder.getGetTextView().setEnabled(false);
             viewHolder.getButton().setOnClickListener(view -> {

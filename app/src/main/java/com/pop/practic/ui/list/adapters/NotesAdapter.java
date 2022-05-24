@@ -32,7 +32,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
             super(view);
             button  = view.findViewById(R.id.item_row_note_button);
             getTextView = view.findViewById(R.id.item_row_note_edit_text);
-            textView = view.findViewById(R.id.textView);
+            textView = view.findViewById(R.id.textViewnote);
         }
 
         public TextView getTextView() {
@@ -67,7 +67,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
     public void onBindViewHolder(NotesAdapter.ViewHolder viewHolder, int position) {
         viewHolder.getGetTextView().setText(notes.get(position).title);
         viewHolder.getButton().setVisibility(View.INVISIBLE);
-        viewHolder.getTextView().setText(String.valueOf(position));
         Log.i("HELP", "ToDoAdapter: " + notes.get(position).title);
 
         if (position+1==notes.size()) {
@@ -75,10 +74,12 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
             viewHolder.getButton().setVisibility(View.VISIBLE);
             viewHolder.getGetTextView().setEnabled(true);
             viewHolder.getButton().setOnClickListener(view -> {
+                viewHolder.getButton().setText("+");
                 if(viewHolder.getGetTextView().getText().toString().equals("")){
                     Toast.makeText(viewHolder.getGetTextView().getContext(), "Пустое поле!", Toast.LENGTH_SHORT).show();
                 }
                 else{
+                    viewHolder.getTextView().setText("*");
                     Note note = notes.get(position);
                     note.title = (String) viewHolder.getGetTextView().getText().toString();
 
@@ -93,6 +94,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
         }
         else
         {
+            viewHolder.getButton().setText("-");
+            viewHolder.getTextView().setText(String.valueOf(position));
             viewHolder.getButton().setVisibility(View.VISIBLE);
             viewHolder.getGetTextView().setEnabled(false);
             viewHolder.getButton().setOnClickListener(view -> {
