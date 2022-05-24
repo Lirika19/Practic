@@ -18,9 +18,9 @@ public class Repository {
     private ToDoRefDB todorefDB;
     public Repository(Context context){
         this.context = context;
-        noteDB = Room.databaseBuilder(context,NoteDB.class, "database-name").allowMainThreadQueries().fallbackToDestructiveMigration().build();
+        noteDB = Room.databaseBuilder(context,NoteDB.class, "databasenote-name").allowMainThreadQueries().fallbackToDestructiveMigration().build();
         Note note =  new Note();
-        todorefDB = Room.databaseBuilder(context,ToDoRefDB.class, "database-name").allowMainThreadQueries().fallbackToDestructiveMigration().build();
+        todorefDB = Room.databaseBuilder(context,ToDoRefDB.class, "databasetodo-name").allowMainThreadQueries().fallbackToDestructiveMigration().build();
         List<Note> notes = new ArrayList<>() ;
         ToDoRef todoref =  new ToDoRef();
         List<ToDoRef> todo = new ArrayList<>();

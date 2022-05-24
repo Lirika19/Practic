@@ -14,12 +14,14 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="37dp"
+        android:textColor="@color/black"
         android:layout_marginEnd="31dp"
         android:layout_marginRight="31dp"
         android:text="1"
         app:layout_constraintEnd_toStartOf="@+id/item_row_todo_edit_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/item_row_todo_edit_text"
@@ -29,6 +31,7 @@
         android:layout_marginEnd="21dp"
         android:layout_marginRight="21dp"
         android:layout_marginBottom="7dp"
+        android:textColor="@color/black"
         android:maxWidth="200dp"
         android:minWidth="150dp"
         android:minHeight="48dp"
