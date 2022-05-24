@@ -53,9 +53,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
     // Create new views (invoked by the layout manager)
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        // Create a new view, which defines the UI of the list item
-        View note_new = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.item_row_note_new, viewGroup, false);
 
         View note_full = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.item_row_note_full, viewGroup, false);
