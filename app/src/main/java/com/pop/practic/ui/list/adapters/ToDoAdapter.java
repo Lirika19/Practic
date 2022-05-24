@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,20 +28,16 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
     public ToDoAdapter(Repository repository) {
         todo = repository.getToDoRefDB().todorefDAO().getAll();
         this.repository = repository;
-        repository.getToDoRefDB().todorefDAO().getAll().get(0);
-        Log.i("HELP", "ToDoAdapter: " + repository.getToDoRefDB().todorefDAO().getAll().get(0));
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView getTextView;
         private final TextView textView;
         private final Button button;
-        private final EditText editText;
         private Repository repository;
 
         public ViewHolder(View view) {
             super(view);
-            editText = view.findViewById(R.id.item_row_todo_edit_text);
             button = view.findViewById(R.id.item_row_todo_button);
             getTextView = view.findViewById(R.id.item_row_todo_edit_text);
             textView = view.findViewById(R.id.textViewtodo);
@@ -76,32 +71,44 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         viewHolder.getGetTextView().setText(todo.get(position).title);
-        viewHolder.getTextView().setText(String.valueOf(position+1));
+        viewHolder.getButton().setVisibility(View.INVISIBLE);
+        viewHolder.getTextView().setText(String.valueOf(position));
         Log.i("HELP", "ToDoAdapter: " + todo.get(position).title);
 
-        if (position +1 == todo.size()) {
+        if (position+1==todo.size()) {
             viewHolder.getTextView().setVisibility(View.INVISIBLE);
             viewHolder.getButton().setVisibility(View.VISIBLE);
+            viewHolder.getGetTextView().setEnabled(true);
             viewHolder.getButton().setOnClickListener(view -> {
-              //  if(editText.getText().toString().equals("")){
-          //          Toast.makeText(context, "Пустое поле!", Toast.LENGTH_SHORT).show();
-              //  }else{
-                    ToDoRef todoref = new ToDoRef();
-                    todoref.title = (String) viewHolder.getTextView().getText().toString();
-                    repository.getToDoRefDB().todorefDAO().insertAll(todoref);
-                    repository.getToDoRefDB().todorefDAO().updateUsers();
-            //        Toast.makeText(context, "Cохранено!", Toast.LENGTH_SHORT).show();
-              //  }
+                ToDoRef todoref = todo.get(position);
+                todoref.title = (String) viewHolder.getGetTextView().getText().toString();
 
-
+                repository.getToDoRefDB().todorefDAO().updateUsers(todoref);
+                todoref = new ToDoRef();
+                todoref.title = "";
+                repository.getToDoRefDB().todorefDAO().insertAll(todoref);
+                updateAdapter(todo);
+            });
+        }
+        else
+        {
+            viewHolder.getButton().setVisibility(View.VISIBLE);
+            viewHolder.getGetTextView().setEnabled(false);
+            viewHolder.getButton().setOnClickListener(view -> {
+                repository.getToDoRefDB().todorefDAO().deleteNote(todo.get(position));
+                updateAdapter(todo);
+                notifyItemChanged(position);
             });
         }
 
     }
-    public void updateAdapter(List<ToDoRef> newList){
-       todo.clear();
-       todo.addAll(newList);
+
+    public void updateAdapter(List<ToDoRef> newList) {
+        todo.clear();
+        todo.addAll(repository.getToDoRefDB().todorefDAO().getAll());
+        notifyDataSetChanged();
     }
+
     @Override
     public int getItemCount() {
         return todo.size();
