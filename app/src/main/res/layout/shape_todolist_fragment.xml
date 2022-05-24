@@ -19,7 +19,8 @@
         android:text="1"
         app:layout_constraintEnd_toStartOf="@+id/item_row_todo_edit_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/item_row_todo_edit_text"

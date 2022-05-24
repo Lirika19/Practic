@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -80,14 +81,20 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
             viewHolder.getButton().setVisibility(View.VISIBLE);
             viewHolder.getGetTextView().setEnabled(true);
             viewHolder.getButton().setOnClickListener(view -> {
-                ToDoRef todoref = todo.get(position);
-                todoref.title = (String) viewHolder.getGetTextView().getText().toString();
+                if(viewHolder.getGetTextView().getText().toString().equals("")){
+                    Toast.makeText(viewHolder.getGetTextView().getContext(), "Пустое поле!", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    ToDoRef todoref = todo.get(position);
+                    todoref.title = (String) viewHolder.getGetTextView().getText().toString();
 
-                repository.getToDoRefDB().todorefDAO().updateUsers(todoref);
-                todoref = new ToDoRef();
-                todoref.title = "";
-                repository.getToDoRefDB().todorefDAO().insertAll(todoref);
-                updateAdapter(todo);
+                    repository.getToDoRefDB().todorefDAO().updateUsers(todoref);
+                    todoref = new ToDoRef();
+                    todoref.title = "";
+                    repository.getToDoRefDB().todorefDAO().insertAll(todoref);
+                    updateAdapter(todo);
+                    Toast.makeText(viewHolder.getGetTextView().getContext(), "Сохранено!", Toast.LENGTH_SHORT).show();
+                }
             });
         }
         else

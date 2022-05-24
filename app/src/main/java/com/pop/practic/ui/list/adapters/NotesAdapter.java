@@ -7,12 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pop.practic.R;
 import com.pop.practic.repository.Repository;
 import com.pop.practic.repository.room.notes.Note;
+import com.pop.practic.repository.room.todolist.ToDoRef;
 
 import java.util.List;
 
@@ -61,21 +64,50 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-
+    public void onBindViewHolder(NotesAdapter.ViewHolder viewHolder, int position) {
         viewHolder.getGetTextView().setText(notes.get(position).title);
-        Log.i("LOX", "NotesAdapter: "+ notes.get(position).title);
-        if (position == notes.size()) {
+        viewHolder.getButton().setVisibility(View.INVISIBLE);
+        viewHolder.getTextView().setText(String.valueOf(position));
+        Log.i("HELP", "ToDoAdapter: " + notes.get(position).title);
+
+        if (position+1==notes.size()) {
             viewHolder.getTextView().setVisibility(View.INVISIBLE);
             viewHolder.getButton().setVisibility(View.VISIBLE);
+            viewHolder.getGetTextView().setEnabled(true);
             viewHolder.getButton().setOnClickListener(view -> {
-                Note note = new Note();
-                note.title = (String) viewHolder.getTextView().getText().toString();
-                repository.getNoteDB().noteDAO().insertAll(note);
-                repository.getNoteDB().noteDAO().updateUsers();
+                if(viewHolder.getGetTextView().getText().toString().equals("")){
+                    Toast.makeText(viewHolder.getGetTextView().getContext(), "Пустое поле!", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Note note = notes.get(position);
+                    note.title = (String) viewHolder.getGetTextView().getText().toString();
+
+                    repository.getNoteDB().noteDAO().updateUsers(note);
+                    note = new Note();
+                    note.title = "";
+                    repository.getNoteDB().noteDAO().insertAll(note);
+                    updateAdapter(notes);
+                    Toast.makeText(viewHolder.getGetTextView().getContext(), "Сохранено!", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else
+        {
+            viewHolder.getButton().setVisibility(View.VISIBLE);
+            viewHolder.getGetTextView().setEnabled(false);
+            viewHolder.getButton().setOnClickListener(view -> {
+                repository.getNoteDB().noteDAO().deleteNote(notes.get(position));
+                updateAdapter(notes);
+                notifyItemChanged(position);
             });
         }
 
+    }
+
+    public void updateAdapter(List<Note> newList) {
+        notes.clear();
+        notes.addAll(repository.getNoteDB().noteDAO().getAll());
+        notifyDataSetChanged();
     }
 
     @Override
