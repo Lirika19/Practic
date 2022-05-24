@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 
 
     <LinearLayout
@@ -21,9 +21,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/item_row_note_edit_text"
-            android:layout_width="242dp"
+            android:layout_width="235dp"
             android:layout_height="41dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="0dp"
             android:layout_marginTop="23dp"
             android:layout_marginEnd="21dp"
             android:layout_marginBottom="667dp"
@@ -33,13 +33,13 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/item_row_note_button"
-            android:layout_width="48dp"
+            android:layout_width="40dp"
             android:layout_height="48dp"
-            android:layout_marginStart="6dp"
+            android:layout_marginStart="0dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="667dp"
             android:text="+"
             android:visibility="visible" />
 
     </LinearLayout>
-</layout>
+</RelativeLayout>
