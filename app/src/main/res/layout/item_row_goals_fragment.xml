@@ -21,6 +21,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/item_row_goals_edit_text"
                 helperText="True"
+                android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Ваша цель"
