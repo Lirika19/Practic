@@ -2,16 +2,27 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textTODO"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="TODO"
+            android:textSize="36dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="#A767D5"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.3"
+            android:layout_weight="0.5"
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -20,6 +31,17 @@
                 android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textNOTE"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="NOTES"
+            android:textSize="36dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="#A767D5"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
