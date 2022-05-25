@@ -16,6 +16,9 @@ import com.pop.practic.repository.room.notes.NoteDB;
 import com.pop.practic.repository.room.todolist.ToDoRef;
 import com.pop.practic.repository.room.todolist.ToDoRefDB;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Repository {
     private Context context;
     private NoteDB noteDB;
