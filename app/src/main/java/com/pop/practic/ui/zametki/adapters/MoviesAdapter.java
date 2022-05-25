@@ -9,42 +9,43 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.pop.practic.repository.room.movies.Movies;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pop.practic.R;
 import com.pop.practic.repository.Repository;
-import com.pop.practic.repository.room.goals.Goals;
+import com.pop.practic.ui.list.adapters.NotesAdapter;
 
 
 import java.util.List;
 
-public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHolder> {
+public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder> {
     private final Repository repository;
     Context context;
-    List<Goals> goalsList;
+    List<Movies> moviesList;
 
-    public GoalsAdapter(Repository repository) {
-        goalsList = repository.getGoalsDB().goalsDAO().getAll();
+    public MoviesAdapter(Repository repository) {
+        moviesList = repository.getMoviesDB().moviesDAO().getAll();
         this.repository=repository;
     }
 
     @NonNull
     @Override
-    public GoalsViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View goals_full = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.item_row_goals_fragment, viewGroup, false);
-        return new GoalsViewHolder(goals_full);    }
-
+    public MoviesViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        View movies_full = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.item_row_movies_fragment, viewGroup, false);
+        return new MoviesViewHolder(movies_full);
+    }
 
     @Override
-    public void onBindViewHolder(GoalsViewHolder viewHolder, int position) {
-        viewHolder.getEditTextView().setText(goalsList.get(position).title);
+    public void onBindViewHolder(MoviesViewHolder viewHolder, int position) {
+        viewHolder.getEditTextView().setText(moviesList.get(position).title);
         viewHolder.getButton().setVisibility(View.INVISIBLE);
-        Log.i("HELP", "ToDoAdapter: " + goalsList.get(position).title);
+        Log.i("HELP", "ToDoAdapter: " + moviesList.get(position).title);
 
-        if (position + 1 == goalsList.size()) {
+        if (position + 1 == moviesList.size()) {
             viewHolder.getButton().setText("+");
             viewHolder.getButton().setVisibility(View.VISIBLE);
             viewHolder.getEditTextView().setEnabled(true);
@@ -52,13 +53,13 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHol
                 if (viewHolder.getEditTextView().getText().toString().equals("")) {
                     Toast.makeText(viewHolder.getEditTextView().getContext(), "Пустое поле!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Goals goal = goalsList.get(position);
-                    goal.title = (String) viewHolder.getEditTextView().getText().toString();
-                    repository.getGoalsDB().goalsDAO().updateUsers(goal);
-                    goal.title = "";
-                    goal = new Goals();
-                    repository.getGoalsDB().goalsDAO().insertAll(goal);
-                    updateAdapter(goalsList);
+                    Movies movies = moviesList.get(position);
+                    movies.title = (String) viewHolder.getEditTextView().getText().toString();
+                    repository.getMoviesDB().moviesDAO().updateUsers(movies);
+                    movies.title = "";
+                    movies = new Movies();
+                    repository.getMoviesDB().moviesDAO().insertAll(movies);
+                    upDateAdapter(moviesList);
                     Toast.makeText(viewHolder.getEditTextView().getContext(), "Сохранено!", Toast.LENGTH_SHORT).show();
                 }
             });
@@ -67,34 +68,34 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsViewHol
             viewHolder.getButton().setVisibility(View.VISIBLE);
             viewHolder.getEditTextView().setEnabled(false);
             viewHolder.getButton().setOnClickListener(view -> {
-                repository.getGoalsDB().goalsDAO().deleteNote(goalsList.get(position));
-                updateAdapter(goalsList);
+                repository.getMoviesDB().moviesDAO().deleteNote(moviesList.get(position));
+                upDateAdapter(moviesList);
                 notifyItemChanged(position);
             });
         }
 
     }
 
-    private void updateAdapter(List<Goals> goalsList) {
-        goalsList.clear();
-        goalsList.addAll(repository.getGoalsDB().goalsDAO().getAll());
+    private void upDateAdapter(List<Movies> moviesList) {
+        moviesList.clear();
+        moviesList.addAll(repository.getMoviesDB().moviesDAO().getAll());
         notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
 
-        return goalsList.size();
+        return moviesList.size();
     }
 
-    public class GoalsViewHolder extends RecyclerView.ViewHolder{
+    public class MoviesViewHolder extends RecyclerView.ViewHolder{
         EditText editTextView;
         Button button;
 
-        public GoalsViewHolder(@NonNull View itemView) {
+        public MoviesViewHolder(@NonNull View itemView) {
             super(itemView);
-            editTextView = itemView.findViewById(R.id.item_row_goals_edit_text);
-            button = itemView.findViewById(R.id.item_row_goals_button);
+            editTextView = itemView.findViewById(R.id.item_row_movies_text);
+            button = itemView.findViewById(R.id.item_row_movies_button);
         }
         public Button getButton() {
             return button;

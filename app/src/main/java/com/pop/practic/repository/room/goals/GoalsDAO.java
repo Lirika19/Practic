@@ -1,30 +1,22 @@
 package com.pop.practic.repository.room.goals;
 
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.pop.practic.repository.room.notes.Note;
-
 import java.util.List;
-
+@Dao
 public interface GoalsDAO {
     @Insert
     void insertAll(Goals... goals);
     
-    @Query("SELECT * FROM goals")
+    @Query("SELECT * FROM Goals")
     List<Goals> getAll();
 
-    @Query("SELECT * FROM goals WHERE title IN(:title) ")
+    @Query("SELECT * FROM Goals WHERE title IN(:title) ")
     List<Goals> getByTitle(String title);
-
-    @Query("SELECT * FROM goals WHERE startDate IN(:startDate) ")
-    List<Goals> getBystartDate(String startDate);
-
-    @Query("SELECT * FROM goals WHERE endDate IN(:endDate) ")
-    List<Goals> getByendDate(String endDate);
-
 
     @Delete
     void deleteNote(Goals goals);

@@ -6,8 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.pop.practic.repository.room.notes.Note;
-
+import java.util.Collection;
 import java.util.List;
 
 @Dao

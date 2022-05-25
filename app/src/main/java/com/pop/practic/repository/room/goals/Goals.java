@@ -8,8 +8,4 @@ public class Goals {
     public long uid;
     @ColumnInfo(name = "title")
     public String title;
-    @ColumnInfo(name = "startDate")
-    public String startDate;
-    @ColumnInfo(name = "endDate")
-    public String endDate;
 }

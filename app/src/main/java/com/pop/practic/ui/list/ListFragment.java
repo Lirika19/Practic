@@ -37,7 +37,6 @@ public class ListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         fragmentListBinding = FragmentListBinding.inflate(inflater, container, false);
-
         fragmentListBinding.notesRecyclerView.setAdapter(notesAdapter);
         fragmentListBinding.todoRecyclerView.setAdapter(toDoAdapter);
         return fragmentListBinding.getRoot();

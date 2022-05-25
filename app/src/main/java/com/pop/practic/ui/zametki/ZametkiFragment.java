@@ -9,27 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pop.practic.R;
+import com.pop.practic.app.App;
+import com.pop.practic.databinding.FragmentZametkiBinding;
+import com.pop.practic.ui.zametki.adapters.GoalsAdapter;
+import com.pop.practic.ui.zametki.adapters.MoviesAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ZametkiFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ZametkiFragment extends Fragment {
+    FragmentZametkiBinding fragmentZametkiBinding;
+    GoalsAdapter goalsAdapter = new GoalsAdapter(App.getInstance().getRepository());
+    MoviesAdapter moviesAdapter = new MoviesAdapter(App.getInstance().getRepository());
 
-    public ZametkiFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ZametkiFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static ZametkiFragment newInstance(String param1, String param2) {
         ZametkiFragment fragment = new ZametkiFragment();
         Bundle args = new Bundle();
@@ -44,6 +33,9 @@ public class ZametkiFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_zametki, container, false);
+        fragmentZametkiBinding = FragmentZametkiBinding.inflate(inflater, container, false);
+        fragmentZametkiBinding.goalsRecyclerView.setAdapter(goalsAdapter);
+        fragmentZametkiBinding.moviesRecyclerView.setAdapter(moviesAdapter);
+        return fragmentZametkiBinding.getRoot();
     }
 }
