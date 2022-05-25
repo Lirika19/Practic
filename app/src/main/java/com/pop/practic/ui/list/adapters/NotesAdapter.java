@@ -60,6 +60,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
     @NonNull
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 
+
         View note_fr = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.item_row_note_full, viewGroup, false);
 

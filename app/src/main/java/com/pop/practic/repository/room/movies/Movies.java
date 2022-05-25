@@ -1,9 +1,11 @@
-package com.pop.practic.repository.room.goals;
+package com.pop.practic.repository.room.movies;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
 @Entity
-public class Goals {
+public class Movies {
     @PrimaryKey(autoGenerate = true)
     public long uid;
     @ColumnInfo(name = "title")
